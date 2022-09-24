@@ -5,6 +5,7 @@ type wrapperProps = Pick<ButtonProps, 'size'>
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
+    height: 3rem;
     font-size: ${theme.font.sizes.xsmall};
   `,
 
