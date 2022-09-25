@@ -39,4 +39,14 @@ describe('<Menu />', () => {
     expect(screen.queryByText(/My Account/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/Wishlist/i)).not.toBeInTheDocument()
   })
+
+  it('should show wishlist and account when logged in', () => {
+    renderWithTheme(<Menu username="Joao" />)
+
+    expect(screen.queryByText(/My Account/i)).toBeInTheDocument()
+    expect(screen.queryByText(/Wishlist/i)).toBeInTheDocument()
+
+    expect(screen.queryByText(/Log in now/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Sign Up/i)).not.toBeInTheDocument()
+  })
 })
