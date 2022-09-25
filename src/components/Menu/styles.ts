@@ -9,7 +9,6 @@ export const Wrapper = styled.menu`
     position: relative;
   `}
 `
-
 export const LogoWrapper = styled.div`
   ${media.lessThan('medium')`
     position: absolute;
@@ -17,7 +16,6 @@ export const LogoWrapper = styled.div`
     transform: translateX(-50%);
   `}
 `
-
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
@@ -26,23 +24,27 @@ export const IconWrapper = styled.div`
     height: 2.4rem;
   `}
 `
-
 export const MenuGroup = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
-
+    align-items: center;
     > div {
-      margin-left: ${theme.spacings.xxsmall};
+      margin-left: ${theme.spacings.xsmall};
     }
   `}
 `
-export const MenuNav = styled.div``
+export const MenuNav = styled.div`
+  ${({ theme }) => css`
+    margin-left: ${theme.spacings.small};
+  `}
+`
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
+    color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
     margin: 0.3rem ${theme.spacings.small} 0;
     text-decoration: none;
@@ -69,11 +71,9 @@ export const MenuLink = styled.a`
     }
   `}
 `
-
 type MenuFullProps = {
   isOpen: boolean
 }
-
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ theme, isOpen }) => css`
     display: flex;
@@ -87,8 +87,10 @@ export const MenuFull = styled.nav<MenuFullProps>`
     right: 0;
     height: 100vh;
     overflow: hidden;
+    transition: opacity 0.3s ease-in-out;
     opacity: ${isOpen ? 1 : 0};
     pointer-events: ${isOpen ? 'all' : 'none'};
+
     > svg {
       position: absolute;
       top: 0;
@@ -98,6 +100,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
       width: 2.4rem;
       height: 2.4rem;
     }
+
     ${MenuNav} {
       display: flex;
       align-items: center;
@@ -105,6 +108,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
       flex: 1;
       flex-direction: column;
     }
+
     ${MenuLink} {
       color: ${theme.colors.black};
       font-weight: ${theme.font.bold};
@@ -113,6 +117,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;
     }
+
     ${RegisterBox} {
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;
@@ -133,11 +138,9 @@ export const RegisterBox = styled.div`
     }
   `}
 `
-
 export const CreateAccount = styled.a`
   ${({ theme }) => css`
     text-decoration: none;
     color: ${theme.colors.primary};
-    border-bottom: 0.2rem solid ${theme.colors.primary};
   `}
 `
