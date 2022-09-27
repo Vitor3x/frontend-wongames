@@ -37,7 +37,9 @@ export const MenuGroup = styled.div`
 `
 export const MenuNav = styled.div`
   ${({ theme }) => css`
-    margin-left: ${theme.spacings.small};
+    ${media.greaterThan('medium')`
+      margin-left: ${theme.spacings.small};
+    `}
   `}
 `
 
@@ -49,6 +51,7 @@ export const MenuLink = styled.a`
     margin: 0.3rem ${theme.spacings.small} 0;
     text-decoration: none;
     text-align: center;
+
     &:hover {
       &::after {
         content: '';
@@ -74,6 +77,7 @@ export const MenuLink = styled.a`
 type MenuFullProps = {
   isOpen: boolean
 }
+
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ theme, isOpen }) => css`
     display: flex;
@@ -131,6 +135,7 @@ export const RegisterBox = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 0 ${theme.spacings.xlarge} ${theme.spacings.xlarge};
+
     > span {
       display: block;
       margin: ${theme.spacings.xxsmall} 0;
@@ -142,5 +147,6 @@ export const CreateAccount = styled.a`
   ${({ theme }) => css`
     text-decoration: none;
     color: ${theme.colors.primary};
+    border-bottom: 0.2rem solid ${theme.colors.primary};
   `}
 `
