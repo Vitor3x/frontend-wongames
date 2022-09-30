@@ -9,4 +9,12 @@ describe('<Ribbon />', () => {
 
     expect(screen.getByText(/Best Seller/i)).toBeInTheDocument()
   })
+
+  it('should render with the primary color', () => {
+    renderWithTheme(<Ribbon color="primary">Best Seller</Ribbon>)
+
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({
+      'background-color': '#F231A5'
+    })
+  })
 })
